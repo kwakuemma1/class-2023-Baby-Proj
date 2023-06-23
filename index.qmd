@@ -15,19 +15,19 @@ library(babynames)
 
 ```{r}
 babynames |>
-  filter(str_detect(name, "j$")) |>
+  filter(str_detect(name, "g$")) |>
   summarise(sum_n = sum(n), 
             sum_prop = sum(prop),
             .by = c(year, sex)) |> 
   ggplot(aes(x = year, y = sum_prop, fill = sex)) +
     geom_area() +
     scale_y_continuous(labels = scales::percent_format()) +
-    labs(title = 'Percentage of US Babies with Names Ending in "i"',
-         subtitle = "Boy names ending with i are steadily increasing",
+    labs(title = 'Percentage of US Babies with Names Ending in "g" ' ,
+         subtitle = "Boy names ending with g are seem to be really high",
          x = "Year",
          y = NULL,
          caption = "Babynames R Package",
-         fill = "Sex") 
+         fill = "sex")
 ```
 
 
