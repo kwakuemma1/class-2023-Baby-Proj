@@ -1,11 +1,33 @@
 ---
-title: "class-2023-Baby-Proj"
+title: "class-2023-Baby-Name-Proj"
+execute: 
+  echo: false
 ---
 
-This is a Quarto website.
+This is an example plot from babynames package
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 ```{r}
-1 + 1
+library(tidyverse)
+library(babynames)
 ```
+
+
+```{r}
+babynames |>
+  filter(str_detect(name, "j$")) |>
+  summarise(sum_n = sum(n), 
+            sum_prop = sum(prop),
+            .by = c(year, sex)) |> 
+  ggplot(aes(x = year, y = sum_prop, fill = sex)) +
+    geom_area() +
+    scale_y_continuous(labels = scales::percent_format()) +
+    labs(title = 'Percentage of US Babies with Names Ending in "i"',
+         subtitle = "Boy names ending with i are steadily increasing",
+         x = "Year",
+         y = NULL,
+         caption = "Babynames R Package",
+         fill = "Sex") 
+```
+
+
