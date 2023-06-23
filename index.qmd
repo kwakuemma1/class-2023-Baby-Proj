@@ -23,7 +23,7 @@ babynames |>
     geom_area() +
     scale_y_continuous(labels = scales::percent_format()) +
     labs(title = 'Percentage of US Babies with Names Ending in "g" ' ,
-         subtitle = "Boy names ending with g are seem to be really high",
+         subtitle = "Boy names ending with g seem to be really high",
          x = "Year",
          y = NULL,
          caption = "Babynames R Package",
